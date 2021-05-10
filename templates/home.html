@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELHI HOUSE PRICE PREDICTOR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+</head>
+
+<body class="text-primary bg-dark">
+    <div class="row">
+        <h1 class="d-flex justify-content-center mt-5">PREDICTION OF HOUSE PRICE IN DELHI</h1>
+
+        <form action="{{url_for('predict')}}"method="post" class="w-10">
+            <div class="row p-2">
+                <div class="col-lg-4 p-3">
+                    <label for="" class="d-flex justify-content-center">AREA (IN SQUARE FEET)</label>
+                    <input type="number" name="area" id="" class="form-control input-lg" required>
+                    <br>
+
+                    <label for="" class="d-flex justify-content-center">BHK</label>
+                    <input type="number" name="bhk" id="" class="form-control input-lg" required>
+                    <br>
+
+                    <label for="" class="d-flex justify-content-center">BATHROOM</label>
+                    <input type="number" name="bathroom" id="" class="form-control input-lg" required>
+                    <br>
+                </div>
+
+                <div class="col-lg-4 p-3">
+
+
+                    <label for="" class="d-flex justify-content-center">FURNISHING</label>
+                    <select class="form-select" name="furnishing" id="" required>
+                        <option value="Furnished">Fursnished</option>
+                        <option value="Semi-Furnished">Semi-Furnished</option>
+                        <option value="Unfurnished">Unfurnished</option>
+                    </select>
+                    <br>
+
+                    <label for="" class="d-flex justify-content-center">LOCALITY</label>
+                    <input type="text" name="locality" id="" class="form-control input-lg" required>
+                    <br>
+
+                    <label for="Parking" class="d-flex justify-content-center">NO. OF PARKING</label>
+                    <input type="number" name="parking" id="" class="form-control input-lg" required>
+                    <br>
+
+                </div>
+                <div class="col-lg-4 p-3">
+
+
+                    <label for="" class="d-flex justify-content-center">STATUS</label>
+                    <select class="form-select" name="status" required>
+                        <option value="Ready_to_move">Ready_to_move</option>
+                        <option value="Almost_ready">Almost_ready</option>
+                    </select>
+                    <br>
+                    <label for="" class="d-flex justify-content-center">TRANSACTION</label>
+                    <select class="form-select" name="transaction" required>
+                        <option value="New_Property">New_Property</option>
+                        <option value="Resale">Resale</option>
+                    </select>
+                    <br>
+                    <label for="" class="d-flex justify-content-center">TYPE</label>
+                    <select class="form-select" name="type" required>
+                        <option value="Builder_Floor">Builder_Floor</option>
+                        <option value="Apartment">Apartment</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+
+                <button type="submit" class="center btn btn-info btn-lg mt-5 pr-5 pl-5"
+                    style="text-align: center;">CHECK</button>
+            </div>
+        </form>
+        <br>
+        <br>
+
+        <div class="center d-flex justify-content-center mt-5 "><h1>{{prediction_text}}</h1></div>
+    </div>
+
+</body>
+
+</html>
